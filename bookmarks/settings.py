@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social.apps.django_app.default',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -111,5 +112,10 @@ LOGIN_REDIRECT_URL = reverse_lazy('dashboard')
 LOGIN_URL = reverse_lazy('login')
 LOGOUT_URL = reverse_lazy('logout')
 
+
+AUTHENTICATION_BACKENDS = (
+     'django.contrib.auth.backends.ModelBackend',
+     'account.authentication.EmailAuthBackend',
+)
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
